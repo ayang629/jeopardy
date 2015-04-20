@@ -6,6 +6,9 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Game = mongoose.model('Game'),
+	Question = mongoose.model('Question'),
+	Topic = mongoose.model('Topic'),
+	Player = mongoose.model('Player'),
 	_ = require('lodash');
 
 /**

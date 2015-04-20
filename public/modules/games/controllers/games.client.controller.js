@@ -1,17 +1,16 @@
 'use strict';
 
 // Games controller
-angular.module('games').controller('GamesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Games',
-	function($scope, $stateParams, $location, Authentication, Games) {
+angular.module('games').controller('GamesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Games', 'Questions', 'Topics',
+	function($scope, $stateParams, $location, Authentication, Games, Questions, Topics) {
 		$scope.authentication = Authentication;
-
+		$scope.topics = [];
 		// Create new Game
 		$scope.create = function() {
 			// Create new Game object
 			var game = new Games ({
 				name: this.name,
 				topics: this.topics,
-				players: this.players,
 			});
 
 			// Redirect after save, redirecting to specific created page
@@ -20,7 +19,6 @@ angular.module('games').controller('GamesController', ['$scope', '$stateParams',
 
 				// Clear form fields
 				$scope.topics = [];
-				$scope.players = [];
 				$scope.name = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
@@ -53,6 +51,12 @@ angular.module('games').controller('GamesController', ['$scope', '$stateParams',
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
+		};
+
+		$scope.addTopic = function(){
+			var newTopic = new Topics(this.topicName);
+			//Find three questions
+			//
 		};
 
 		// Find a list of Games

@@ -36,11 +36,6 @@ var GameSchema = new Schema({
 		default: [],
 		required: 'Please add topics'
 	},
-	players: {
-		type: [PlayerSchema],
-		default: [],
-		required: 'Please add players'
-	},
 	created: {
 		type: Date,
 		default: Date.now
